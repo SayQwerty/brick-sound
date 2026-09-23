@@ -131,11 +131,14 @@
     });
   });
 
-  document.querySelectorAll(".work button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const msg = encodeURIComponent("Привет! Пришлите, пожалуйста, примеры работ.");
-      if (C.wa) location.href = C.wa + (C.wa.indexOf("?") >= 0 ? "&" : "?") + "text=" + msg;
-      else if (C.avito) window.open(C.avito, "_blank");
-    });
+  const workUrls = C.works || {};
+  document.querySelectorAll("[data-work]").forEach((card) => {
+    const id = card.getAttribute("data-work");
+    const url = workUrls[id];
+    const link = card.querySelector(".work-link");
+    if (!link || !url) return;
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener";
   });
 })();

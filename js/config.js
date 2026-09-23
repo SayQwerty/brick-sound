@@ -13,5 +13,16 @@ window.BS = {
   map: "https://yandex.ru/maps/?rtext=~55.7694,37.5958&rtt=auto",
   mapWidget: "https://yandex.ru/map-widget/v1/?ll=37.5958%2C55.7694&z=16&pt=37.5958,55.7694,pm2rdl&l=map",
   formEndpoint: "",
-  metrikaId: ""
+  metrikaId: "",
+
+  /* Примеры работ на главной (#works).
+     Сюда подставляйте актуальные ссылки (YouTube, VK Video, SoundCloud, Яндекс Музыка и т.п.).
+     Ключ должен совпадать с data-work у карточки в index.html.
+     Сейчас стоят заглушки example.com — клик по фото уже открывает url. */
+  works: {
+    aiver: "https://example.com/works/aiver",
+    jenoth: "https://example.com/works/jenoth",
+    ulybaysya: "https://example.com/works/ulybaysya",
+    iris: "https://example.com/works/iris"
+  }
 };
