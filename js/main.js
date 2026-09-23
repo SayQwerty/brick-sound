@@ -3,6 +3,16 @@
   const MAIL = "n.sarukhanov@gmail.com";
   if (C.wa) C.wa = C.wa.replace("wa.me/+", "wa.me/");
 
+  const covers = C.covers || {};
+  Object.keys(covers).forEach((name) => {
+    const src = covers[name];
+    if (!src) return;
+    document.querySelectorAll("img").forEach((img) => {
+      const s = img.getAttribute("src") || "";
+      if (s.indexOf(name) !== -1) img.src = src;
+    });
+  });
+
   document.querySelectorAll("[data-wa]").forEach((el) => {
     el.href = C.wa || el.href;
     el.target = "_blank";
