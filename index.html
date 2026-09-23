@@ -30,6 +30,7 @@
       <a href="#prices">Цены</a>
       <a href="#studio">Студия</a>
       <a href="#works">Примеры</a>
+      <a href="#vk-videos">Видео</a>
       <a href="#faq">FAQ</a>
       <a href="#lead">Заявка</a>
     </nav>
@@ -232,6 +233,44 @@
         </a>
         <figcaption>Ирис · запись вокала</figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<section id="vk-videos">
+  <div class="wrap">
+    <h2 class="sec-title">Видео со студии</h2>
+    <p class="sec-sub">Три ролика ВКонтакте. Актуальные ссылки подставьте в <code>js/config.js</code> → <code>vkVideos</code>.</p>
+    <div class="vk-slider" data-vk-slider>
+      <div class="vk-track" data-vk-track>
+        <article class="vk-slide" data-vk-slide>
+          <div class="vk-frame">
+            <iframe title="VK видео 1" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" src="https://vk.com/video_ext.php?oid=-0000001&id=456239017&hd=2"></iframe>
+          </div>
+          <p class="vk-cap">Видео 1</p>
+        </article>
+        <article class="vk-slide" data-vk-slide>
+          <div class="vk-frame">
+            <iframe title="VK видео 2" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" src="https://vk.com/video_ext.php?oid=-0000002&id=456239018&hd=2"></iframe>
+          </div>
+          <p class="vk-cap">Видео 2</p>
+        </article>
+        <article class="vk-slide" data-vk-slide>
+          <div class="vk-frame">
+            <iframe title="VK видео 3" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" src="https://vk.com/video_ext.php?oid=-0000003&id=456239019&hd=2"></iframe>
+          </div>
+          <p class="vk-cap">Видео 3</p>
+        </article>
+      </div>
+      <div class="vk-controls">
+        <button class="vk-nav" type="button" data-vk-prev aria-label="Предыдущее видео">‹</button>
+        <div class="vk-dots" data-vk-dots>
+          <button type="button" class="is-on" data-vk-dot="0" aria-label="Видео 1"></button>
+          <button type="button" data-vk-dot="1" aria-label="Видео 2"></button>
+          <button type="button" data-vk-dot="2" aria-label="Видео 3"></button>
+        </div>
+        <button class="vk-nav" type="button" data-vk-next aria-label="Следующее видео">›</button>
+      </div>
     </div>
   </div>
 </section>
