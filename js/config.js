@@ -1,7 +1,7 @@
 /* Подставьте реальные контакты перед запуском на домен */
 window.BS = {
   brand: "Brick Sound",
-  room: "Маяковская",
+  room: "Маяк",
   phoneDisplay: "Написать в WhatsApp",
   phoneHref: "", // пример: "tel:+74951234567"
   wa: "https://wa.me/+79169738849", // замените номер
@@ -14,5 +14,3 @@ window.BS = {
   map: "https://yandex.ru/maps/?rtext=~55.7694,37.5958&rtt=auto",
   mapWidget: "https://yandex.ru/map-widget/v1/?ll=37.5958%2C55.7694&z=16&pt=37.5958,55.7694,pm2rdl&l=map",
   formEndpoint: "", // Formspree / свой бэкенд. Пусто = локальный успех + WhatsApp
-  metrikaId: ""
-};
