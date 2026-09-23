@@ -1,5 +1,6 @@
 (function () {
   const C = window.BS || {};
+  const MAIL = "n.sarukhanov@gmail.com";
 
   document.querySelectorAll("[data-wa]").forEach((el) => {
     el.href = C.wa || el.href;
@@ -54,10 +55,16 @@
         alert("Нужно согласие на обработку персональных данных");
         return;
       }
+      const btn = form.querySelector("[type=submit]");
+      if (btn) btn.disabled = true;
+
       const data = Object.fromEntries(new FormData(form).entries());
       data.page = location.pathname;
-      data.utm = utm;
+      data.utm = utm || "";
       data.source = document.referrer || "direct";
+      data._subject = "Заявка Brick Sound";
+      data._template = "table";
+      data._captcha = "false";
 
       const text = encodeURIComponent(
         "Заявка Brick Sound\n" +
@@ -66,35 +73,42 @@
           "Услуга: " + (data.service || "") + "\n" +
           "Окно: " + (data.when || "") + "\n" +
           "Комментарий: " + (data.comment || "") + "\n" +
-          "Страница: " + data.page + "\n" +
-          (utm ? "UTM: " + utm : "")
+          "Страница: " + data.page
       );
 
-      const payload = new URLSearchParams();
-      payload.set("form-name", "lead");
-      ["name", "contact", "service", "when", "comment", "page", "utm", "source"].forEach((k) => {
-        payload.set(k, data[k] || "");
-      });
-      payload.set("agree", data.agree ? "yes" : "no");
       try {
-        const dest = C.formEndpoint || "/";
-        const isJson = /formspree|json/i.test(dest) && dest !== "/";
-        await fetch(dest, {
+        const res = await fetch("https://formsubmit.co/ajax/" + MAIL, {
           method: "POST",
-          headers: isJson
-            ? { "Content-Type": "application/json", Accept: "application/json" }
-            : { "Content-Type": "application/x-www-form-urlencoded" },
-          body: isJson ? JSON.stringify(data) : payload.toString()
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            name: data.name,
+            contact: data.contact,
+            service: data.service,
+            when: data.when || "",
+            comment: data.comment || "",
+            page: data.page,
+            utm: data.utm,
+            source: data.source,
+            _subject: data._subject,
+            _template: "table",
+            _captcha: "false"
+          })
         });
-      } catch (err) {}
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok && json.success === false) throw new Error("mail");
+      } catch (err) {
+        if (btn) btn.disabled = false;
+        alert("Не удалось отправить на почту. Напишите, пожалуйста, в WhatsApp.");
+        return;
+      }
 
       form.style.display = "none";
       const ok = document.querySelector(".form-ok");
       if (ok) ok.style.display = "block";
-      const waBtn = ok?.querySelector("[data-wa-msg]");
+      const waBtn = ok && ok.querySelector("[data-wa-msg]");
       if (waBtn) {
         const base = (C.wa || "https://wa.me/").replace(/\?.*$/, "");
-        waBtn.href = base + (base.includes("?") ? "&" : "?") + "text=" + text;
+        waBtn.href = base + (base.indexOf("?") >= 0 ? "&" : "?") + "text=" + text;
       }
       if (window.ym && C.metrikaId) {
         window.ym(C.metrikaId, "reachGoal", "form_submit");
@@ -110,10 +124,9 @@
 
   document.querySelectorAll(".work button").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const url = C.wa || C.avito;
       const msg = encodeURIComponent("Привет! Пришлите, пожалуйста, примеры работ.");
-      if (C.wa) location.href = C.wa + (C.wa.includes("?") ? "&" : "?") + "text=" + msg;
-      else window.open(url, "_blank");
+      if (C.wa) location.href = C.wa + (C.wa.indexOf("?") >= 0 ? "&" : "?") + "text=" + msg;
+      else if (C.avito) window.open(C.avito, "_blank");
     });
   });
 })();
