@@ -5,7 +5,7 @@ window.BS = {
   phoneHref: "tel:+79169738849",
   wa: "https://wa.me/79169738849",
   tg: "https://t.me/Say_Qwerty",
-  vk: "https://vk.com/bricksound",
+  vk: "https://vk.com/studiobrick",
   avito: "https://www.avito.ru/moskva/predlozheniya_uslug/studiya_zvukozapisi_mayak_na_tverskoy_7830313295",
   email: "n.sarukhanov@gmail.com",
   address: "Москва, Садовая-Триумфальная ул., 4-10",
