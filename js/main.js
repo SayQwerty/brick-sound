@@ -70,15 +70,23 @@
           (utm ? "UTM: " + utm : "")
       );
 
-      if (C.formEndpoint) {
-        try {
-          await fetch(C.formEndpoint, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify(data)
-          });
-        } catch (err) {}
-      }
+      const payload = new URLSearchParams();
+      payload.set("form-name", "lead");
+      ["name", "contact", "service", "when", "comment", "page", "utm", "source"].forEach((k) => {
+        payload.set(k, data[k] || "");
+      });
+      payload.set("agree", data.agree ? "yes" : "no");
+      try {
+        const dest = C.formEndpoint || "/";
+        const isJson = /formspree|json/i.test(dest) && dest !== "/";
+        await fetch(dest, {
+          method: "POST",
+          headers: isJson
+            ? { "Content-Type": "application/json", Accept: "application/json" }
+            : { "Content-Type": "application/x-www-form-urlencoded" },
+          body: isJson ? JSON.stringify(data) : payload.toString()
+        });
+      } catch (err) {}
 
       form.style.display = "none";
       const ok = document.querySelector(".form-ok");
