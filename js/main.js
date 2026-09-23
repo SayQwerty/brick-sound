@@ -142,12 +142,23 @@
     link.rel = "noopener";
   });
 
+  function vkNoAutoplay(src) {
+    if (!src) return "";
+    return src
+      .replace(/([?&])autoplay=\d+/gi, "$1autoplay=0")
+      .replace(/([?&])autoplay=0(&autoplay=0)+/gi, "$1autoplay=0")
+      + ( /[?&]autoplay=/.test(src) ? "" : (src.indexOf("?") >= 0 ? "&" : "?") + "autoplay=0" );
+  }
+
   function vkEmbedSrc(url) {
     if (!url) return "";
-    if (/video_ext\.php/.test(url)) return url;
-    const m = String(url).match(/video(-?\d+)_(\d+)/i);
-    if (!m) return "";
-    return "https://vk.com/video_ext.php?oid=" + m[1] + "&id=" + m[2] + "&hd=2";
+    var src = url;
+    if (!/video_ext\.php/.test(url)) {
+      const m = String(url).match(/video(-?\d+)_(\d+)/i);
+      if (!m) return "";
+      src = "https://vk.com/video_ext.php?oid=" + m[1] + "&id=" + m[2] + "&hd=2";
+    }
+    return vkNoAutoplay(src);
   }
 
   const vkList = Array.isArray(C.vkVideos) ? C.vkVideos : [];
@@ -159,6 +170,8 @@
     const frame = slide.querySelector("iframe");
     const cap = slide.querySelector(".vk-cap");
     if (frame && src) {
+      frame.removeAttribute("allow");
+      frame.setAttribute("allow", "encrypted-media; fullscreen; picture-in-picture");
       frame.src = src;
       if (item.title) frame.title = item.title;
     }
