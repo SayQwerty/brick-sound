@@ -24,5 +24,15 @@ window.BS = {
     jenoth: "https://example.com/works/jenoth",
     ulybaysya: "https://example.com/works/ulybaysya",
     iris: "https://example.com/works/iris"
-  }
+  },
+
+  /* Три VK-видео под блоком «Примеры работ».
+     Вставьте обычную ссылку вида https://vk.com/video-OID_ID
+     или готовый embed https://vk.com/video_ext.php?oid=...&id=...
+     main.js сам соберёт iframe. */
+  vkVideos: [
+    { title: "Видео 1", url: "https://vk.com/video-0000001_456239017" },
+    { title: "Видео 2", url: "https://vk.com/video-0000002_456239018" },
+    { title: "Видео 3", url: "https://vk.com/video-0000003_456239019" }
+  ]
 };
