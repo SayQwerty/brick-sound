@@ -12,6 +12,7 @@ Brick Sound — статический сайт по ТЗ v1.0
 - formEndpoint (Formspree или Telegram-бот)
 - metrikaId
 - юрлицо в privacy.html и подвале
+- works — ссылки на примеры работ (YouTube / VK / SoundCloud / Я.Музыка)
 
 Форма
 - honeypot + чекбокс ПДн
@@ -31,3 +32,10 @@ Brick Sound — статический сайт по ТЗ v1.0
 
 Скидка на сайте: −15% новым, как в актуальном объявлении Авито.
 В ТЗ фигурировало −10% — поменяйте плашку в index.html при необходимости.
+
+Примеры работ
+- Где подставлять актуальные ссылки: js/config.js → объект works
+- Ключи: aiver, jenoth, ulybaysya, iris
+- Карточки на главной: index.html → секция #works (атрибут data-work)
+- Сейчас стоят заглушки https://example.com/works/...
+- main.js сам проставит href из config.js, разметку карточек трогать не нужно
