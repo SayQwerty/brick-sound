@@ -1,21 +1,32 @@
 (function () {
   const C = window.BS || {};
   const MAIL = "n.sarukhanov@gmail.com";
+  if (C.wa) C.wa = C.wa.replace("wa.me/+", "wa.me/");
 
   document.querySelectorAll("[data-wa]").forEach((el) => {
     el.href = C.wa || el.href;
+    el.target = "_blank";
+    el.rel = "noopener";
   });
   document.querySelectorAll("[data-tg]").forEach((el) => {
     el.href = C.tg || el.href;
+    el.target = "_blank";
+    el.rel = "noopener";
   });
   document.querySelectorAll("[data-vk]").forEach((el) => {
     el.href = C.vk || el.href;
+    el.target = "_blank";
+    el.rel = "noopener";
   });
   document.querySelectorAll("[data-avito]").forEach((el) => {
     el.href = C.avito || el.href;
+    el.target = "_blank";
+    el.rel = "noopener";
   });
   document.querySelectorAll("[data-map]").forEach((el) => {
     el.href = C.map || el.href;
+    el.target = "_blank";
+    el.rel = "noopener";
   });
   document.querySelectorAll("[data-tel]").forEach((el) => {
     if (C.phoneHref) el.href = C.phoneHref;
@@ -62,9 +73,6 @@
       data.page = location.pathname;
       data.utm = utm || "";
       data.source = document.referrer || "direct";
-      data._subject = "Заявка Brick Sound";
-      data._template = "table";
-      data._captcha = "false";
 
       const text = encodeURIComponent(
         "Заявка Brick Sound\n" +
@@ -89,12 +97,12 @@
             page: data.page,
             utm: data.utm,
             source: data.source,
-            _subject: data._subject,
+            _subject: "Заявка Brick Sound",
             _template: "table",
             _captcha: "false"
           })
         });
-        const json = await res.json().catch(() => ({}));
+        const json = await res.json().catch(function () { return {}; });
         if (!res.ok && json.success === false) throw new Error("mail");
       } catch (err) {
         if (btn) btn.disabled = false;
@@ -107,8 +115,9 @@
       if (ok) ok.style.display = "block";
       const waBtn = ok && ok.querySelector("[data-wa-msg]");
       if (waBtn) {
-        const base = (C.wa || "https://wa.me/").replace(/\?.*$/, "");
+        const base = (C.wa || "https://wa.me/79169738849").replace(/\?.*$/, "");
         waBtn.href = base + (base.indexOf("?") >= 0 ? "&" : "?") + "text=" + text;
+        waBtn.target = "_blank";
       }
       if (window.ym && C.metrikaId) {
         window.ym(C.metrikaId, "reachGoal", "form_submit");
