@@ -138,4 +138,15 @@
       else if (C.avito) window.open(C.avito, "_blank");
     });
   });
+
+    const workUrls = C.works || {};
+  document.querySelectorAll("[data-work]").forEach((card) => {
+    const id = card.getAttribute("data-work");
+    const url = workUrls[id];
+    const link = card.querySelector(".work-link");
+    if (!link || !url) return;
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener";
+  });
 })();
