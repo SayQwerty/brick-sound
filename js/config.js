@@ -14,7 +14,6 @@ window.BS = {
   mapWidget: "https://yandex.ru/map-widget/v1/?ll=37.5958%2C55.7694&z=16&pt=37.5958,55.7694,pm2rdl&l=map",
   formEndpoint: "",
   metrikaId: ""
-};
 
 /* Примеры работ на главной (#works).
      Сюда подставляйте актуальные ссылки (YouTube, VK Video, SoundCloud, Яндекс Музыка и т.п.).
@@ -26,3 +25,4 @@ window.BS = {
     ulybaysya: "https://music.yandex.ru/album/26501113/track/38216275",
     fish: "https://vkvideo.ru/video-19021738_456239087"
   },
+};
