@@ -203,16 +203,40 @@
 <section id="works">
   <div class="wrap">
     <h2 class="sec-title">Примеры работ</h2>
-    <p class="sec-sub">Фрагменты пришлём в мессенджер — часть треков нельзя выкладывать открыто. Нажмите play.</p>
+    <p class="sec-sub">Нажмите на обложку — откроется трек. Сейчас стоят заглушки; актуальные ссылки подставьте в <code>js/config.js</code> → <code>works</code>.</p>
     <div class="works">
-      <figure class="work"><img src="img/studio-06.webp" alt="Аивер — Караоке для грустных" loading="lazy"><button type="button" aria-label="Послушать">▶</button><figcaption>Аивер · запись / сведение</figcaption></figure>
-      <figure class="work"><img src="img/studio-07.webp" alt="Jenoth — Tension" loading="lazy"><button type="button" aria-label="Послушать">▶</button><figcaption>Velcrocranes · полный продакшн</figcaption></figure>
-      <figure class="work"><img src="img/studio-04.webp" alt="Проект Улыбайся" loading="lazy"><button type="button" aria-label="Послушать">▶</button><figcaption>Улыбайся · вокал · продюсирования</figcaption></figure>
-      <figure class="work"><img src="img/studio-05.webp" alt="Проект Ирис" loading="lazy"><button type="button" aria-label="Послушать">▶</button><figcaption>Fish Out Of Water · сессионная запись · сведение</figcaption></figure>
+      <figure class="work" data-work="aiver">
+        <a class="work-link" href="https://example.com/works/aiver" target="_blank" rel="noopener">
+          <img src="img/studio-06.webp" alt="Аивер — Караоке для грустных" loading="lazy">
+          <span class="work-play" aria-hidden="true">▶</span>
+        </a>
+        <figcaption>Аивер · запись / сведение</figcaption>
+      </figure>
+      <figure class="work" data-work="hold">
+        <a class="work-link" href="https://example.com/works/hold" target="_blank" rel="noopener">
+          <img src="img/studio-07.webp" alt="Velcrocranes – Hold Your Breath" loading="lazy">
+          <span class="work-play" aria-hidden="true">▶</span>
+        </a>
+        <figcaption>Velcrocranes · полный продакшн</figcaption>
+      </figure>
+      <figure class="work" data-work="ulybaysya">
+        <a class="work-link" href="https://example.com/works/ulybaysya" target="_blank" rel="noopener">
+          <img src="img/studio-04.webp" alt="Проект Улыбайся" loading="lazy">
+          <span class="work-play" aria-hidden="true">▶</span>
+        </a>
+        <figcaption>Улыбайся · вокал · продюсирование</figcaption>
+      </figure>
+      <figure class="work" data-work="fish">
+        <a class="work-link" href="https://example.com/works/fish" target="_blank" rel="noopener">
+          <img src="img/studio-05.webp" alt="Проект Fish Out Of Water (Live)" loading="lazy">
+          <span class="work-play" aria-hidden="true">▶</span>
+        </a>
+        <figcaption>Fish Out Of Water · сессионная запись · сведениеа</figcaption>
+      </figure>
     </div>
   </div>
 </section>
-
+  
 <section>
   <div class="wrap">
     <h2 class="sec-title">Отзывы с Авито</h2>
