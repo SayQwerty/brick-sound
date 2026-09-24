@@ -13,7 +13,7 @@ window.BS = {
   map: "https://yandex.ru/maps/?rtext=~55.7694,37.5958&rtt=auto",
   mapWidget: "https://yandex.ru/map-widget/v1/?ll=37.5958%2C55.7694&z=16&pt=37.5958,55.7694,pm2rdl&l=map",
   formEndpoint: "",
-  metrikaId: ""
+  metrikaId: "",
 
 /* Примеры работ на главной (#works).
      Сюда подставляйте актуальные ссылки (YouTube, VK Video, SoundCloud, Яндекс Музыка и т.п.).
