@@ -53,7 +53,7 @@ button,input,select,textarea{font:inherit}
   background:
     linear-gradient(
       180deg,
-      var(--hero-scrim-top) 0%,
+      var(--hero-scrim-top) 20%,
       rgba(13,12,11,.28) 20%,
       var(--hero-scrim-mid) 80%,
       rgba(13,12,11,.88) 78%,
