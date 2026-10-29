@@ -1,1 +1,12 @@
-$(cat /tmp/sitemap.xml)
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://bricksound.ru/</loc></url>
+  <url><loc>https://bricksound.ru/zapis-vokala.html</loc></url>
+  <url><loc>https://bricksound.ru/podcast.html</loc></url>
+  <url><loc>https://bricksound.ru/video-podcast.html</loc></url>
+  <url><loc>https://bricksound.ru/pesnya-pod-klyuch.html</loc></url>
+  <url><loc>https://bricksound.ru/arenda.html</loc></url>
+  <url><loc>https://bricksound.ru/svedenie.html</loc></url>
+  <url><loc>https://bricksound.ru/clients.html</loc></url>
+  <url><loc>https://bricksound.ru/privacy.html</loc></url>
+</urlset>
