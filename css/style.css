@@ -18,9 +18,9 @@
   --max:1160px;
   --font:"Manrope",system-ui,sans-serif;
   --display:"Unbounded","Manrope",sans-serif;
-  --hero-scrim-top:rgba(13,12,11,.40);
-  --hero-scrim-mid:rgba(13,12,11,.62);
-  --hero-scrim-bot:rgba(13,12,11,.96);
+  --hero-scrim-top:rgba(13,12,11,.50);
+  --hero-scrim-mid:rgba(13,12,11,.75);
+  --hero-scrim-bot:rgba(13,12,11,.98);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip}
@@ -47,27 +47,27 @@ button,input,select,textarea{font:inherit}
 /* hero */
 .hero{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden}
 .hero-bg{position:absolute;inset:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.08) brightness(.9)}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.08) brightness(.85)}
 .hero-overlay{
   position:absolute;inset:0;pointer-events:none;
   background:
     linear-gradient(
       180deg,
-      var(--hero-scrim-top) 00%,
-      rgba(13,12,11,.28) 20%,
-      var(--hero-scrim-mid) 80%,
-      rgba(13,12,11,.88) 78%,
+      var(--hero-scrim-top) 0%,
+      rgba(13,12,11,.35) 25%,
+      var(--hero-scrim-mid) 55%,
+      rgba(13,12,11,.92) 75%,
       var(--hero-scrim-bot) 100%
     ),
-    radial-gradient(ellipse 90% 70% at 50% 30%, transparent 36%, rgba(13,12,11,.42) 100%);
+    radial-gradient(ellipse 90% 70% at 50% 30%, transparent 30%, rgba(13,12,11,.55) 100%);
 }
 .hero-content{position:relative;z-index:1;padding:120px 0 56px}
 .kicker{display:inline-flex;gap:8px;align-items:center;color:#d8cfc4;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;text-shadow:0 1px 12px rgba(0,0,0,.55)}
 .kicker i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 6px rgba(125,206,160,.15)}
 h1,.h1{font-family:var(--display);font-weight:600;letter-spacing:-.03em;line-height:1.05;font-size:clamp(32px,6vw,64px);margin:0 0 16px}
-.hero h1{text-shadow:0 2px 28px rgba(0,0,0,.62)}
+.hero h1{text-shadow:0 2px 28px rgba(0,0,0,.7)}
 .lead{max-width:640px;color:var(--muted);font-size:clamp(16px,2vw,20px);margin:0 0 28px}
-.hero .lead{color:#e8dfd4;text-shadow:0 1px 18px rgba(0,0,0,.55)}
+.hero .lead{color:#e8dfd4;text-shadow:0 1px 18px rgba(0,0,0,.65)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
 .pills{display:flex;flex-wrap:wrap;gap:8px}
 .pill{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:8px 12px;font-size:13px;color:var(--muted)}
@@ -87,6 +87,7 @@ section{padding:72px 0}
 .sec-sub{color:var(--muted);margin:0 0 28px;max-width:620px}
 .clients{display:flex;flex-wrap:wrap;gap:8px 10px}
 .client{border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:13px;background:rgba(255,255,255,.03)}
+.clients-more{margin-top:18px;display:inline-block}
 
 .grid-3,.grid-2,.cards-6{display:grid;gap:14px}
 .cards-6{grid-template-columns:repeat(3,1fr)}
@@ -96,6 +97,8 @@ section{padding:72px 0}
 .card img{width:100%;height:180px;object-fit:cover}
 .card-body{padding:16px 16px 18px}
 .card h3{margin:0 0 8px;font-size:20px;font-family:var(--display);letter-spacing:-.02em}
+.card h3 a{text-decoration:none;color:inherit}
+.card h3 a:hover{color:var(--accent)}
 .price{color:var(--accent);font-weight:700;margin:0 0 10px}
 .card ul{margin:0 0 14px;padding-left:18px;color:var(--muted)}
 .card li{margin:4px 0}
